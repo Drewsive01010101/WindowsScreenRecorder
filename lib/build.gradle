@@ -8,8 +8,8 @@
 
 plugins {
     // Apply the java-library plugin for API and implementation separation.
-    id 'java-application'
-    
+    id 'java-library'
+    id "com.github.johnrengelman.shadow" version "6.1.0"
 
     
     
@@ -38,4 +38,10 @@ dependencies {
     implementation 'com.google.guava:guava:29.0-jre'
     
     implementation 'xuggle:xuggle-xuggler-server-all:5.7.0-20210205.154804-12'
+}
+
+shadowJar {
+    manifest {
+        attributes 'Main-Class': 'RecordingApp.ScreenRecorder'
+    }
 }
